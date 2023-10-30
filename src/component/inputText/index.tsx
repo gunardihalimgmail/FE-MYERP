@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './inputText.scss'
+import {svgCustom} from '../../utils/svgcustom'
 
 const InputText = ({placehold = "", heightType = "medium", inputType = "text",
                     maxLengthInput = -1, name = "", outChange}) => {
@@ -9,6 +10,7 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
     const [text, setText] = useState('');
     const [focused, setFocused] = useState(false);
     const [heightTypeState, setHeightTypeState] = useState("");
+    const [showText, setShowText] = useState(false);
 
     useEffect(()=>{
         switch(heightType)
@@ -35,6 +37,16 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
         outChange({value: event.target.value, name})
     }
 
+    
+    const handleClickIconPassword = () => {
+        if (showText){ // password
+            setShowText(false)
+        }
+        else{
+            setShowText(true)
+        }
+    }
+    
 
     return (
         <div className={`box-input ${focused ? 'focused' : ''} ${heightTypeState}`}>
@@ -48,11 +60,38 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
             }
             {
                 inputType == 'password' &&
-                <input className={`form-control input-style ${heightTypeState}`} 
-                        type = "password" 
-                        maxLength={maxLengthInput}
-                        onFocus={handleFocus} onBlur={handleBlur} 
-                        onChange={handleChange}/>
+                (
+                    <div className='password-container'>
+                        <input className={`form-control input-style ${heightTypeState} input-password`} 
+                                // type = "password" 
+                                type = {`${showText ? 'text':'password'}`}
+                                maxLength={maxLengthInput}
+                                onFocus={handleFocus} onBlur={handleBlur} 
+                                onChange={handleChange}/>
+
+                        <div className='password-hideshow-icon' 
+                            onClick={handleClickIconPassword}>
+
+                            <div className = "monkey">
+                                <svg>
+                                    <use xlinkHref="#monkey" />
+                                </svg>
+                                
+                            </div>
+                            <div className={`monkey-hands ${showText ? 'show' : ''}`}>
+                                <svg>
+                                    <use xlinkHref="#monkey-hands" />
+                                </svg>
+                            </div>
+                            
+                            
+                        </div>
+                        {
+                            svgCustom('monkey_and_hands')
+                        }
+                    </div>
+                )
+                
             }
             <span className='input-title'>{placehold}</span>
         </div>
