@@ -72,12 +72,12 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
                         <div className='password-hideshow-icon' 
                             onClick={handleClickIconPassword}>
 
-                            <div className = "monkey">
+                            <div className = {`monkey ${showText ? 'show' : ''}`}>
                                 <svg>
                                     <use xlinkHref="#monkey" />
                                 </svg>
-                                
                             </div>
+
                             <div className={`monkey-hands ${showText ? 'show' : ''}`}>
                                 <svg>
                                     <use xlinkHref="#monkey-hands" />
