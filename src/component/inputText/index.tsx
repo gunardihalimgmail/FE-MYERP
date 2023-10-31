@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './inputText.scss'
 import {svgCustom} from '../../utils/svgcustom'
 
-const InputText = ({placehold = "", heightType = "medium", inputType = "text",
-                    maxLengthInput = -1, name = "", outChange}) => {
+const InputText = (
+                    props
+                    // {placehold = "", heightType = "medium", inputType = "text",
+                    // maxLengthInput = -1, name = "", outChange, ...props}
+                    ) => {
     // heightType => medium / large
     // inputType => text / password
 
@@ -12,12 +15,20 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
     const [heightTypeState, setHeightTypeState] = useState("");
     const [showText, setShowText] = useState(false);
 
+    const { value, placehold, heightType, inputType, maxLengthInput, name, outChange } = props;
+
     useEffect(()=>{
         switch(heightType)
         {
             case 'large': setHeightTypeState('large'); break;
             case 'medium': setHeightTypeState('medium'); break;
             default: setHeightTypeState('medium');break;
+        }
+
+        if (value != null && value != ""){
+            setText(value)
+            setFocused(true)
+            outChange({value, name})
         }
 
     },[])
@@ -56,7 +67,10 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
                         type = "text" 
                         maxLength={maxLengthInput}
                         onFocus={handleFocus} onBlur={handleBlur} 
-                        onChange={handleChange}/>
+                        onChange={handleChange}
+                        name = {name}
+                        value={text}
+                />
             }
             {
                 inputType == 'password' &&
@@ -67,7 +81,10 @@ const InputText = ({placehold = "", heightType = "medium", inputType = "text",
                                 type = {`${showText ? 'text':'password'}`}
                                 maxLength={maxLengthInput}
                                 onFocus={handleFocus} onBlur={handleBlur} 
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                name = {name}
+                                value={text}
+                        />
 
                         <div className='password-hideshow-icon' 
                             onClick={handleClickIconPassword}>
