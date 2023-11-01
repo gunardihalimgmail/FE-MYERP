@@ -4,12 +4,13 @@ import history from '../utils/history';
 import { RootStoreContext } from '../stores/RootStore';
 import Alert from '../utils/alert';
 import { Link } from 'react-router-dom';
-import './loginpage.scss'
+import './loginPage.scss'
 import ImgBoyWithRocketLight from '../assets/img/boy-with-rocket-light.png'
 import { error } from 'console';
 import InputText from '../component/inputText';
 import { Button, Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import CheckBoxInput from '../component/checkBoxInput';
+import {store} from './storeSubs'
 
 const label = { inputProps: {'aria-label':'checkbox-mui'}}
 
@@ -38,6 +39,10 @@ const Login = () => {
 
 
 	useEffect(() => {
+
+		store.subscribe(()=>{
+			console.log(store.getState())
+		})
 
 		const timer = setTimeout(() => {
 			const script = document.createElement("script");
@@ -77,11 +82,11 @@ const Login = () => {
 		{
 			if (typeof (obj?.['name']) != 'undefined' &&
 				typeof (obj?.['value']) != 'undefined'){
-	
+
 				let valInputTemp:any = {...valInput};	// copy ke variable temp
 				valInputTemp[obj?.['name']] = obj?.['value'];
 				setValInput(valInputTemp);
-				console.log(valInputTemp)
+				// console.log(valInputTemp)
 			}
 		}
 		else if (form == 'forgot')
@@ -92,7 +97,7 @@ const Login = () => {
 				let valInputForgotTemp:any = {...valInputForgot};	// copy ke variable temp
 				valInputForgotTemp[obj?.['name']] = obj?.['value'];
 				setValInputForgot(valInputForgotTemp);
-				console.log(valInputForgotTemp)
+				// console.log(valInputForgotTemp)
 			}
 		}
 	}
@@ -124,7 +129,18 @@ const Login = () => {
 					inputInvalidTemp[key] = false;
 				}
 			})
-			setInputInvalid(inputInvalidTemp);
+			setInputInvalid({
+				...inputInvalidTemp
+			});
+
+			let findInvalid = Object.keys(inputInvalidTemp).find((x)=>{return inputInvalidTemp[x]})
+			if (findInvalid){
+				console.log("Invalid");
+				return
+			}
+
+			// kondisi berhasil login
+			
 		}
 		else if (form == 'forgot')
 		{
@@ -173,7 +189,7 @@ const Login = () => {
 					<div className={`login-img-side-left-forgotpass ${statusFormShowForgot ? 'show' : ''}`}></div>
 				</div>
 
-				<div className='login-side-right d-flex align-items-center'>
+				<div className='login-side-right d-flex align-items-center justify-content-center'>
 
 					<div className='login-side-right-wrapper'>
 
@@ -196,7 +212,6 @@ const Login = () => {
 
 										<div className='text-danger'>
 											{(inputForgotInvalid['email'] || errorMsgForgot.trim() != "") && (<span>{errorMsgForgot}</span>)}
-											{/* {meta.error && meta.touched && (<span>{meta.error}</span>)} */}
 										</div>
 									</React.Fragment>
 

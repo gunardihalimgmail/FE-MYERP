@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './inputText.scss'
 import {svgCustom} from '../../utils/svgcustom'
+import {store } from '../../login/storeSubs'
 
 const InputText = (
                     props
@@ -25,6 +26,7 @@ const InputText = (
             default: setHeightTypeState('medium');break;
         }
 
+        // set default text
         if (value != null && value != ""){
             setText(value)
             setFocused(true)
@@ -37,15 +39,18 @@ const InputText = (
         setFocused(true);
     }
 
+    
     const handleBlur = () => {
         if (text == ''){
             setFocused(false);
         }
+
     }
 
     const handleChange = (event) => {
         setText(event.target.value)
         outChange({value: event.target.value, name})
+
     }
 
     

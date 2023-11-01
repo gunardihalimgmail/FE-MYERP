@@ -7,7 +7,7 @@
 }
 .login-side-left {
     height:100vh;
-    flex:1.5;
+    flex:1.7;
     background-color: #F5F5F9;
     position: relative;
     // width: 50%;
@@ -23,6 +23,8 @@
     padding: 3rem;
 
     .login-side-right-wrapper {
+        
+        width:450px;
 
         .signin{
             display: none;
@@ -96,11 +98,15 @@
 
 @keyframes animateShiftRightContainer {
     from {
-        transform: translateX(100%);
+        position: relative;
+        left:100%;
+        // transform: translateX(100%);
         opacity: 0.2;
     }
     to {
-        transform: translateX(0);
+        // transform: translateX(0);
+        position: relative;
+        left:0;
         opacity: 1;
     }
 }
