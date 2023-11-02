@@ -7,6 +7,12 @@ import { Router } from 'react-router-dom';
 import appHistory from './utils/history';
 import { ReactNotifications } from 'react-notifications-component';
 
+if (process.env.NODE_ENV == 'production'){
+  console.log = () => {}
+  console.error = () => {}
+  console.debug = () => {}
+}
+
 ReactDOM.render(
   <Router history={appHistory}>
     <ReactNotifications />

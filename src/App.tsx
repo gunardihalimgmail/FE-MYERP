@@ -47,11 +47,18 @@ function App() {
   return (
 
     <div>
-      {
+
+      <BrowserRouter>
+          <Route exact path="/" component={Login} />
+          {modules.map((module)=>(
+              <Route {...module.routeProps} key = {module.name} />
+          ))}
+      </BrowserRouter>
+      
+      {/* {
         authenticated ?
           <>
             <HashRouter>
-              {/* <Switch> */}
 
                 <div id="wrapper">
                   <Menu />
@@ -76,19 +83,15 @@ function App() {
                   </div>  
                 </div>
 
-              {/* </Switch> */}
             </HashRouter>
           </> :
           <>
             <HashRouter>
-              {/* <Switch> */}
                 <Route exact path="/" component={Login} />
-                {/* <Redirect to="/" /> */}
-              {/* </Switch> */}
             </HashRouter>
 
           </>
-      }
+      } */}
     </div>
   );
 

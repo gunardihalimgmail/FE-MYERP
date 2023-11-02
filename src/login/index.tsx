@@ -3,7 +3,7 @@ import { Form, Field } from "react-final-form";
 import history from '../utils/history';
 import { RootStoreContext } from '../stores/RootStore';
 import Alert from '../utils/alert';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './loginPage.scss'
 import ImgBoyWithRocketLight from '../assets/img/boy-with-rocket-light.png'
 import { error } from 'console';
@@ -36,6 +36,8 @@ const Login = () => {
 	const [inputForgotInvalid, setInputForgotInvalid] = useState({
 		'email': false
 	});
+
+	const history = useHistory();
 
 
 	useEffect(() => {
@@ -140,7 +142,8 @@ const Login = () => {
 			}
 
 			// kondisi berhasil login
-			
+			history.push("/main");
+
 		}
 		else if (form == 'forgot')
 		{
