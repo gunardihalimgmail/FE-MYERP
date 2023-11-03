@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './header.scss'
 import HamburgerMenu from '../hamburgerMenu'
+import BreadCrumb from '../breadcrumb'
 
 const HeaderMain = (props:any) => {
 
@@ -18,7 +19,11 @@ const HeaderMain = (props:any) => {
             </nav>
 
             <div className='header-subnav'>
-                {'Home > Good'}
+                <BreadCrumb 
+                    path = {["Home", "Transaksi", "Penjualan"]}
+                    lastActive = {true}
+                    // idxActive = {2}
+                />
             </div>
         </>
     )

@@ -1,0 +1,98 @@
+::-webkit-scrollbar {
+    height:5px;
+}
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 50px;
+}
+
+.breadcrumb {
+    display: inline-block;
+    // box-shadow: 5px 0px 17px 3px rgba(0,0,0,0.15);
+    counter-reset: flag;
+    overflow: auto;
+    overflow-y: hidden;
+    // border:1px solid grey;
+    // border-radius: 50px;
+    // border:1px solid red;
+    // background: linear-gradient(#666, #333);
+    // background: linear-gradient(#b9dfd8, #056f6f);
+    // background: linear-gradient(#a7e7dc, #077364);
+    background: white;
+
+    a {
+        // background-color: aliceblue;
+        // color:white;
+        color: black;
+        text-decoration: none;
+        // float:left;
+        font-size:12px;
+        font-weight: 500;
+        line-height: 36px;
+        padding: 0px 20px 0px 60px;
+        position: relative;
+        display: inline-block;
+        // transition: all 0.3s;
+
+        &:not(:last-child)::before{
+            content: counter(flag);
+            counter-increment: flag;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:30px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            font-weight: 500;
+            box-shadow: 0 0 0 1px #ccc;
+        }
+
+        &::after {
+            content:'';
+            position: absolute;
+            top:50%;
+            right:-12px;
+            width:26px;
+            height: 26px;
+            z-index:1;
+            // box-shadow: 2px -2px 0 2px rgb(0,0,0,0.4);
+            // box-shadow: 2px -2px 0 2px #62a0a0;
+            // box-shadow: 2px -2px 0 2px #80b1b1;
+            box-shadow: 2px -2px 0 2px rgb(235, 228, 228);
+            transform: translateY(-50%) rotate(45deg);
+            // background: linear-gradient(135deg,#666, #333);
+            // background: linear-gradient(135deg, #b9dfd8, #056f6f);
+            // background: linear-gradient(135deg,#a7e7dc, #077364);
+            background: white;
+        }
+
+        &:hover {
+            &::after {
+                // background: rgb(37, 35, 35);
+                background: linear-gradient(135deg,#90c5bc, #076e61);
+            }
+            // background: rgb(37, 35, 35);
+            color:white !important; 
+            background: linear-gradient(#90c5bc, #076e61);
+        }
+
+        &.active {
+            &::after{
+                background: linear-gradient(135deg,#90c5bc, #076e61);
+            }
+            background: linear-gradient(#90c5bc, #076e61);
+            color: white;
+        }
+
+        &:last-child::after {
+            //hilangkan panah paling kanan
+            display: none;
+        }
+    }
+}

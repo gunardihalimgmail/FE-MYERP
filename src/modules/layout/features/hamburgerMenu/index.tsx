@@ -6,7 +6,7 @@ const HamburgerMenu = () => {
 
     return (
         <>
-            <div className='hamburger-menu' onClick={()=>setOpen(!open)}
+            <div className={`hamburger-menu ${open ? 'active' : ''}`} onClick={()=>setOpen(!open)}
                     title={`${!open ? 'Show Menu':'Collapse Menu'}`}>
                 <div className={`submenu ${open ? 'active':''}`}>
                     <div />
