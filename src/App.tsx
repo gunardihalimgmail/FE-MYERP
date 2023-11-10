@@ -15,6 +15,7 @@ import DetailProblemKebun from "./modules/agronomi/features/detail";
 import UbahPassword from "./login/changepassword";
 import DetailIOM from "./modules/memo/features/Detail/IOM";
 import DetailPengajuan from "./modules/memo/features/Detail/Pengajuan";
+import './App.css'
 
 export const appHistory = createBrowserHistory();
 
@@ -46,7 +47,7 @@ function App() {
 
   return (
 
-    <div>
+    <div className="div-utama">
 
       <BrowserRouter>
           <Route exact path="/" component={Login} />

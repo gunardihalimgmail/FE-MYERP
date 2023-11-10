@@ -91,7 +91,7 @@
         }
 
         &:last-child::after {
-            //hilangkan panah paling kanan
+            //hilangkan panah paling kanan (di kasih satu kosong supaya sebelumnya bisa ada panah)
             display: none;
         }
     }
