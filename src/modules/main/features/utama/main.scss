@@ -1,3 +1,5 @@
+@import '../../../../assets/fonts/font_custom.scss';
+
 .main-page-wrapper {
 
     height:100%;
@@ -24,16 +26,132 @@
             }
         }
 
+        //font level 0
+        
+        //semua level
+        // .ps-menu-label {
+        //     // label MenuItem
+        // }
+        .submenu-custom {
+            font-family: 'Titillium_Web_Regular','Comic Sans ms';
+        }
+
+
         .side-left {
             // border:1px solid red;
-            width: auto;
+            width: 250px;
             background-color: rgb(249,249,249,0.7);
+            overflow: auto;   
             // padding-right: 5px;
+
+            .side-left-sub {
+                border:'1px solid green';
+                position:'relative';
+                height:100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between !important;
+
+                .ps-sidebar-root {
+                    .ps-sidebar-container {
+                        height: auto;
+                    }
+                }
+            }
+
+            &::-webkit-scrollbar {
+                width:4px;
+            }
+            &::-webkit-scrollbar-track {
+                // background-color: rgb(241, 241, 241);
+                background-color: rgb(226 232 240 / 1);
+            }
+            &::-webkit-scrollbar-thumb {
+                background: linear-gradient(rgb(86, 197, 182), rgb(150, 226, 215), rgb(86, 197, 182));
+            }
+
+            .sidebarClasses  {
+                width: auto;
+                min-width: auto;
+            }
+
+
+            .logo-header {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                margin-top: 15px;
+                margin-bottom: 30px;
+                padding-left:24px;
+                
+                .logo-title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size:24px;
+                    font-weight: 700;
+                    border-radius: 8px;
+                    color:white;
+                    width: 35px;
+                    background: linear-gradient(45deg, rgb(21, 131, 205) 0%, rgb(90, 255, 173) 100%);
+                    text-shadow: 0.5px 1px 1px dodgerblue, 1px 1.5px 1px antiquewhite;
+                    // margin-left: 4px;
+                }
+
+                .logo-subtitle {
+                    margin:0;
+                    padding:0;
+                    color: rgb(0, 152, 229);
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-left: 10px;
+                }
+            }
+
+            .side-bottom {
+                // display: flex;
+                // justify-content: center;
+                position: relative;
+                display: block;
+                padding-top:20px;
+                height:160px;
+                // border:1px solid blue;
+                // overflow: hidden;
+
+                .logo-img-bottom {
+                    background:url('../../../../assets/img/black tablet computer with graph illustration.png') no-repeat center;
+                    opacity:1;
+                    background-size: contain;
+                    width: 100%;
+                    height:140px;
+                    display: block;
+                    animation: tes 1.5s ease-in-out;
+                    // top:30px;
+                    // border:1px solid red;
+                    // position: relative;
+                }
+            }
+
         }
         .side-right {
             width:100%;
             overflow: auto;
             
+        }
+
+        @keyframes tes {
+            from {
+                transform: perspective(70px) rotateX(170deg) scale(0.1);
+            }
+            to{
+                transform: rotateX(0) scale(1);
+                width: 100%;
+            }
+        }
+
+
+        nav.ps-menu-root {
+            height:100%;
         }
 
     }

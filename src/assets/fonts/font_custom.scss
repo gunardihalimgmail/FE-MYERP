@@ -1,0 +1,15 @@
+
+$font-path-Titillium: './Titillium_Web/';
+
+@font-face {
+    font-family: 'Titillium_Web_Regular';
+    src: url('#{$font-path-Titillium}/TitilliumWeb-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Titillium_Web_Light';
+    src: url('#{$font-path-Titillium}/TitilliumWeb-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Titillium_Web_Bold';
+    src: url('#{$font-path-Titillium}/TitilliumWeb-Bold.ttf') format('truetype');
+}
