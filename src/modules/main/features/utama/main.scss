@@ -125,7 +125,7 @@
                     width: 100%;
                     height:140px;
                     display: block;
-                    animation: tes 1.5s ease-in-out;
+                    animation: logo-anim 1.5s ease-in-out;
                     // top:30px;
                     // border:1px solid red;
                     // position: relative;
@@ -139,7 +139,7 @@
             
         }
 
-        @keyframes tes {
+        @keyframes logo-anim {
             from {
                 transform: perspective(70px) rotateX(170deg) scale(0.1);
             }
