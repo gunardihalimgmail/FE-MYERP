@@ -1,0 +1,80 @@
+.head-paper {
+    background-color: #FFFFFF;
+    border:0px solid grey;
+    border-radius:15px;
+    box-shadow: 2px 5px 10px 2px rgb(170, 170, 170);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+
+    .head-sub {
+        display: flex;
+        justify-content: space-between;
+        height: 150px;
+        // border:1px solid chocolate;
+        overflow: auto;
+
+        .head-left {
+            border:1px solid red;
+            flex:1;
+        }
+
+        .head-right {
+            position: relative;
+            // border:1px solid green;
+            flex:1;
+            display: flex;
+            justify-content: end;
+            overflow: hidden;
+
+            .head-logo {
+                background: url('../../../../assets/img/logo-best.png') repeat center;
+                background-size: cover;
+                width: 130px;
+                height:70px;
+                // border:1px solid grey;
+            }
+
+            .head-subtitle {
+                position: absolute;
+                // border:1px solid red;
+                top: 55px;
+                right: 110px;
+                font-weight: 900;
+                font-style: italic;
+                font-size: 12px;
+                width:200px;
+
+                .subtitle-1 {
+                    position: relative;
+                    // border:1px solid maroon;
+                    right:10px;
+                    text-align: right;
+                }
+
+                .subtitle-2 {
+                    position: relative;
+                    // border:1px solid maroon;
+                    text-align: right;
+                    right:-40px;
+                }
+            }
+
+            .head-subtitle2 {
+                position: absolute;
+                // border:1px solid red;
+                top: 95px;
+                right: 33px;
+                // font-weight: 900;
+                // font-style: italic;
+                font-size: 11px;
+                width:155px;
+                .subtitle-1 {
+                    position: relative;
+                    // border:1px solid maroon;
+                    text-align: left;
+                    line-height: 1.3;
+                }
+            }
+        }
+    }
+}

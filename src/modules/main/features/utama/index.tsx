@@ -5,6 +5,7 @@ import HeaderMain from '../../../layout/features/header'
 import { Sidebar, Menu, SubMenu, MenuItem } from 'react-pro-sidebar'
 import { svgCustom } from '../../../../utils/svgcustom'
 import SideMenu from '../../../layout/features/sideMenu'
+import PrintBody from '../../../layout/features/printBody'
 
 const MainPage = () => {
 
@@ -33,6 +34,7 @@ const MainPage = () => {
                 <HeaderMain></HeaderMain>
                 <div style = {{height:'300%', padding: '2rem'}}>
                     {/* Body Content */}
+                    <PrintBody />
                 </div>
             </div>
 
