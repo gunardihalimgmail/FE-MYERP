@@ -30,7 +30,7 @@ const MainPage = () => {
             <div className='side-left'>
                 <SideMenu></SideMenu>
             </div>
-            <div className='side-right'>
+            <div className='side-right' >
                 <HeaderMain></HeaderMain>
                 <div style = {{height:'300%', padding: '2rem'}}>
                     {/* Body Content */}
