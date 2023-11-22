@@ -143,7 +143,7 @@
         }
     
         .footer-content {
-            page-break-before: auto;
+            page-break-inside: avoid;   // menghindari lompatan halaman dalam element kelas footer-content, jadi jika margin atau ter-overlapping dalam kelas ini, maka akan lompat ke halaman baru
             display: flex;
     
             .footer-content-1,
@@ -312,3 +312,7 @@ div.page-footer {
     //     height: 50px;
     // }
 }
+
+// .main-content {
+//     page-break-after: avoid;
+// }

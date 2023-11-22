@@ -140,7 +140,7 @@ const PrintBody = () => {
                                     
                                     <main>
 
-                                        <div className='content-body'>
+                                        <div className='content-body main-content'>
                                             <p>
                                                 Dengan hormat,
                                                 <br /><br />
@@ -156,36 +156,38 @@ const PrintBody = () => {
 
                                                 <span>Jakarta, 21 November 2023</span>
                                                 
-                                                <div className='footer-content'>
-
-                                                    <div className='footer-content-1'>
-                                                        <div className='footer-1'>
-                                                            Dibuat,
-                                                        </div>
-
-                                                        <div className='footer-2'>
-                                                            <span><u>Dany Naurma</u></span>
-                                                            <br />
-                                                            <span>Staff TIS</span>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className='footer-content-2'>
-                                                        <div className='footer-1'>
-                                                            Diketahui,
-                                                        </div>
-
-                                                        <div className='footer-2'>
-                                                            <span><u>Masyogi Handoko</u></span>
-                                                            <br />
-                                                            <span>Manager TIS</span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
                                             </p>
                                             
+                                        </div>
+
+                                        {/* -- end main-content */}
+
+                                        <div className='footer-content'>
+
+                                            <div className='footer-content-1'>
+                                                <div className='footer-1'>
+                                                    Dibuat,
+                                                </div>
+
+                                                <div className='footer-2'>
+                                                    <span><u>Dany Naurma</u></span>
+                                                    <br />
+                                                    <span>Staff TIS</span>
+                                                </div>
+                                            </div>
+
+                                            <div className='footer-content-2'>
+                                                <div className='footer-1'>
+                                                    Diketahui,
+                                                </div>
+
+                                                <div className='footer-2'>
+                                                    <span><u>Masyogi Handoko</u></span>
+                                                    <br />
+                                                    <span>Manager TIS</span>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                     </main>
