@@ -20,25 +20,31 @@
 
         div:nth-child(1){
             position: absolute;
-            border:2px solid darkcyan;
+            // border:2px solid darkcyan;
             width: 100%;
+            height: 5px;
+            background-color: darkcyan;
             transform-origin:100% 0%;
             transition: transform 0.3s;
         }
         div:nth-child(2){
             position: absolute;
-            border:2px solid darkcyan;
+            // border:2px solid darkcyan;
             width: 100%;
             top:50%;
+            height: 5px;
+            background-color: darkcyan;
             transform:translateY(-50%);
             transform-origin: 100% 50%;
             transition: transform 0.3s;
         }
         div:nth-child(3){
             position: absolute;
-            border:2px solid darkcyan;
+            // border:2px solid darkcyan;
             width: 100%;
             bottom:0;
+            height: 5px;
+            background-color: darkcyan;
             transform-origin: 100% 100%;
             transition: transform 0.3s;
         }

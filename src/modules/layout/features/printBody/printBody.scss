@@ -1,3 +1,4 @@
+// border:0px solid grey;
 .head-paper {
     background-color: transparent;
     // box-shadow: 2px 5px 10px 2px rgb(170, 170, 170);
@@ -6,7 +7,7 @@
         color: #000000;
         background-color: #FFFFFF;
         // border:0px solid grey;
-        border-radius:15px;
+        border-radius:15px 15px 0 0;
         // box-shadow: 0 0 0 1000px white !important;  // warna putih menutupi grey dari background graphics
         font-family: Arial, Helvetica, sans-serif;
         padding: 30px;
@@ -137,53 +138,17 @@
             }
         }
     
-        .content-body {
-            margin-top: 25px;
-            text-align: justify;
-        }
+      
+        
+        // .main-content-text {
+        //     white-space: nowrap !important;
+        //     word-wrap: normal !important;
+        // }
     
-        .footer-content {
-            page-break-inside: avoid;   // menghindari lompatan halaman dalam element kelas footer-content, jadi jika margin atau ter-overlapping dalam kelas ini, maka akan lompat ke halaman baru
-            display: flex;
-    
-            .footer-content-1,
-            .footer-content-2 {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 180px;
-            }
-            
-            .footer-content-1 {
-                .footer-1 {
-                    margin-top: 20px;
-                }
-                .footer-2 {
-                    span:nth-of-type(2){
-                        position: relative;
-                        display: block;
-                        padding-top:10px;
-                    }
-                }
-            }
-    
-            .footer-content-2 {
-                margin-left: 130px;
-    
-                .footer-1 {
-                    margin-top: 20px;
-                }
-                .footer-2 {
-                    span:nth-of-type(2){
-                        position: relative;
-                        display: block;
-                        padding-top:10px;
-                    }
-                }
-            }
-        }
+        
     }
 }
+
 // .page-break {
 //     page-break-before: always;
 // }
@@ -247,16 +212,16 @@
 // }
 
 table.report-container {
-    page-break-after: always;
+    // page-break-after: always;
     width: 100%;
 }
 
 thead.report-header {
     display: table-header-group;
-
+    
     tr {
         th {
-            visibility: visible;
+            padding-left:0px;
         }
     }
 }
@@ -279,40 +244,181 @@ div.page-footer {
     height: auto;
     font-size: 10px;
     opacity: 0.8;
-    position: fixed;
+    // position: fixed;
     bottom: 0;
     width: 100%;
-    border:1px solid red;
+    // border:1px solid red;
 }
+
+.button-print {
+    display: flex;
+    justify-content: start;
+    button {
+        width: 70px;
+        transition: all .3s ease;
+        color: #28a745 !important;
+        // &:hover {
+        //     color: white !important;
+        // }
+    }
+}
+
+
+
+// @page {
+//     size: A4;
+//     margin: 16mm 16mm 16mm 16mm;
+// }
+
+// @page :first {
+//     // size:letter;
+//     // margin: 50mm 50mm 50mm 50mm;
+//     @bottom-left {
+//         content: 'Halaman ' counter(page);
+//         font-size: 30px;
+//         color: red;
+//     }
+// }
+
+
+// @page {
+//     // Styles for subsequent pages
+// }
 
 @media print {
-    @page {
-        size: A4;
-        margin: 16mm 16mm 16mm 16mm;
-    }
 
-    // html,
-    // body {
-    //     height: initial !important;
-    //     overflow: initial !important;
-    //     -webkit-print-color-adjust: exact !important;
-    //     print-color-adjust: exact !important;
-    //     color-adjust:exact !important
-    // }
+    @page {
+        size: A4 portrait;
+        margin: 16mm 16mm 16mm 16mm;
+        // counter-increment: page;
+        // counter-reset: 1;
+        // @bottom-left {
+        //     content: "Page " counter(page) " of " counter(pages)
+        // }
+        // counter-increment: page;
+    }
     
 
-    // .watermark {
-    //     display: block;
-    //     counter-increment: page;
-    //     position: fixed;
+    // body {
+    //     counter-reset: page;
     // }
 
-    // div.page-footer, div.footer-info {
-    //     display: block;
-    //     height: 50px;
-    // }
+    .footer-content-div::after {
+        counter-increment: page;
+        // content: attr(data-counter);
+        content: counter(page);
+        display: block;
+        color:red;
+        text-align: center;
+        font-size: 30px;
+        opacity: 1;
+    }
 }
 
-// .main-content {
-//     page-break-after: avoid;
+tbody {
+    span {
+        overflow-wrap: break-word;
+    }
+}
+
+
+// html,
+// body {
+//     height: initial !important;
+//     overflow: initial !important;
+//     -webkit-print-color-adjust: exact !important;
+//     print-color-adjust: exact !important;
+//     color-adjust:exact !important
 // }
+
+
+// .watermark {
+//     display: block;
+//     counter-increment: page;
+//     position: fixed;
+// }
+
+// div.page-footer, div.footer-info {
+//     display: block;
+//     height: 50px;
+// } 
+
+
+.content-p{
+    color: black;
+    text-align: justify;
+}
+
+.footer-content {
+    page-break-inside: avoid;   // menghindari lompatan halaman dalam element kelas footer-content, jadi jika margin atau ter-overlapping dalam kelas ini, maka akan lompat ke halaman baru
+    display: flex;
+
+    .footer-content-1,
+    .footer-content-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 180px;
+    }
+    
+    .footer-content-1 {
+        .footer-1 {
+            margin-top: 20px;
+        }
+        .footer-2 {
+            span:nth-of-type(2){
+                position: relative;
+                display: block;
+                padding-top:10px;
+            }
+        }
+    }
+
+    .footer-content-2 {
+        margin-left: 130px;
+
+        .footer-1 {
+            margin-top: 20px;
+        }
+        .footer-2 {
+            span:nth-of-type(2){
+                position: relative;
+                display: block;
+                padding-top:10px;
+            }
+        }
+    }
+}
+
+.head-main {
+    border-radius:15px;
+
+
+    .head-paper
+    ,.head-paper-content {
+        border-radius: 0 0 15px 15px;   // untuk head-paper-content
+        // box-shadow: 0 0 0 1000px white !important;  // warna putih menutupi grey dari background graphics
+        padding-left:30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #FFFFFF;
+    
+        // .head-subpaper {
+        //     .content-body {
+        //         color: rgb(255,0,0);
+        //         text-align: justify;
+        //     }
+        // }
+       
+    }
+
+    .head-paper {
+        border-radius: 15px 15px 0 0;
+    }
+    .head-paper-content {
+        padding-top:0;
+        
+    }
+    
+}
