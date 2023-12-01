@@ -6,6 +6,7 @@ import 'jspdf-autotable'
 import { UserOptions } from 'jspdf-autotable'
 import html2pdf from 'html2pdf.js'
 import html2canvas from 'html2canvas';
+import WebSocket from 'react-websocket'
 
 // import {Worker, Viewer} from '@react-pdf-viewer/core'
 // import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
@@ -251,12 +252,42 @@ const PrintBody = () => {
         console.log(`Document loaded with ${numPages} pages`);
     };
 
+    const handleData = (data) => {
+        console.log(`Received Data : ${data}`)
+    }
+
+    const handleClickSocket = ()=> {
+        fetch('http://localhost:3017/api/data'
+                ,{ 
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    method:'GET'
+                }
+        )
+            .then(response=>response.json())
+            .then(data=>alert(JSON.stringify(data)))
+    }
+
     return (
         <>
             {/* <ReactToPrint
                 content={()=>componentRef}
                 trigger={() => <button className='btn btn-sm btn-success mb-1'>Print</button>}
             /> */}
+
+            <div>
+                <button className='btn w-100 btn-outline btn-sm btn-info mb-1'
+                    onClick={handleClickSocket}
+                >Web Socket</button>
+
+                <WebSocket
+                    url="ws://localhost:3017"
+                    onMessage={handleData}
+                    reconnect={true}
+                />
+            </div>
+
             <div className='button-print'>
                 <button onClick={handleClickPrint} className='btn w-100 btn-outline btn-sm btn-success mb-1'>Print</button>
             </div>
@@ -313,7 +344,8 @@ const PrintBody = () => {
                     allowFullScreen></iframe>
             </div>
 
-            <div ref={componentRef} className = "head-main">
+            <div ref={componentRef} className = "head-main"
+                style={{opacity:1, position:'initial', top:'0', zIndex:-1}}>
 
                 {/* untuk Cetak ke PDF */}
                 { !winPrint && 

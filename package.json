@@ -54,6 +54,7 @@
     "react-select": "^3.2.0",
     "react-spinners": "^0.11.0",
     "react-to-print": "^2.14.15",
+    "react-websocket": "^2.1.0",
     "redux": "^4.2.1",
     "sass": "^1.69.4",
     "sweetalert": "^2.1.2",

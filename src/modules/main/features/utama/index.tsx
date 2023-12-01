@@ -32,7 +32,7 @@ const MainPage = () => {
             </div>
             <div className='side-right' >
                 <HeaderMain></HeaderMain>
-                <div style = {{height:'300%', padding: '2rem'}}>
+                <div style = {{height:'100%', padding: '2rem'}}>
                     {/* Body Content */}
                     <PrintBody />
                 </div>
